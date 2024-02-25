@@ -14,6 +14,7 @@ let uniqueArray;
 
 function App() {
     const [state, setState] = useState([])
+    const [inputs, setInputs] = useState([])
     useEffect(() => {
         try {
             fetch("http://api.valantis.store:40000/",
@@ -48,13 +49,9 @@ function App() {
                     )
                         .then(resp => resp.json())
                         .then((response) => {
-
-
                             jsonObject = response.result.map(JSON.stringify);
                             uniqueSet = new Set(jsonObject);
                             uniqueArray = Array.from(uniqueSet).map(JSON.parse);
-
-
                             console.log(uniqueArray)
                             setState(uniqueArray)
                         })
@@ -67,13 +64,11 @@ function App() {
     return (
         <div >
             <header className=''  >
-                <Header />
-
+                <Header inputs={inputs}/>
                 <ul class="pagination d-flex justify-content-center m-4">
                     <li class="page-item"> <NavLink to="/" className='page-link'> 1 </NavLink> </li>
                     <li class="page-item"> <NavLink to="/pagination" className='page-link'> 2 </NavLink> </li>
                 </ul>
-
                 <div className='d-flex justify-content-evenly flex-wrap mt-2  '>
                     {state.map((item) => {
                         return (
