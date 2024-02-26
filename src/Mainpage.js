@@ -29,7 +29,7 @@ function App() {
                     },
                     body: JSON.stringify({
                         "action": "get_ids",
-                        "params": { "offset": 0, "limit":25 }
+                        "params": { "offset": 0, "limit": 25 }
                     })
                 }
             )
@@ -78,7 +78,7 @@ function App() {
     // Фильтрация по спискау брендов
     const SorbytName = () => {
         setState(state.filter(item => { return item.product === inputsProduct }))
-        
+
     }
 
 
@@ -124,7 +124,7 @@ function App() {
             <div className='d-flex justify-content-evenly mt-3' >
                 <button onClick={Returnlist} type="button" className="btn btn-danger">Return list</button>
                 <div className="text_links_catalog">
-                    <input type="email" className="form-control text_links_catalog" id="exampleFormControlInput1" onChange={(e) =>  {setinputsProduct(e.target.value)   }} placeholder="add brand" />
+                    <input type="email" className="form-control text_links_catalog" id="exampleFormControlInput1" onChange={(e) => { setinputsProduct(e.target.value) }} placeholder="add brand" />
                 </div>
                 <button onClick={SorbytName} type="button" className="btn btn-danger">Sort by name</button>
                 <div className="text_links_catalog">
